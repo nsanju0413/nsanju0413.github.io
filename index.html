@@ -1,1 +1,138 @@
-"Hello World" 
+<!DOCTYPE html>
+  <html ng-app="profile">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Github Profile Viewer</title>
+    <link rel="stylesheet" href="css/tachyons.min.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="http://mrmrs.io/gradients/css/gradients.min.css" type="text/css" media="screen" charset="utf-8">
+  </head>
+  <body ng-cloak ui-view class="sans-serif" style="background-color: #fbfbfb">
+    <div id="w">
+      <div class="tc pvm bg-light-gray">
+        <form name="githubSearch" ng-submit="goUsername(username)">
+          <input type="text" id="ghusername" autofocus ng-model="username" placeholder="Github username..." class="mrm f5 phm pvs br2 ba b--white">
+          <button id="ghsubmitbtn" ng-model="username" class="input-reset f5 bg-white bw0 br2 dark-gray pvs phm ban dim">Go</button>
+        <div id="ghapidata"></div>
+      </div>
+      <div ng-hide="loaded" class="bg-light-gray pvxxl phm phl-m phxl-l bt b--white-75">
+        <p class="black-80 fw4 f4 f2-ns lh-copy mvn">
+          A mobile friendly, fully responsive GitHub profile.<br>
+        </p>
+        <p class="black-80 f4 center lh-copy">
+          Want a feature? <a href="https://github.com/mrmrs/profile/issues" class="link black-80 fw7 dim">Let us know :)</a>
+        </p>
+      </div>
+      <div ng-show="userNotFound">
+        <h2>Sorry we couldn't find that user. Please try searching again.</h2>
+        <p>Try searching again</p>
+      </div>
+      <div ng-show="loaded">
+        <div class="pvl">
+          <div class="tc">
+            <a href="{{ user.html_url }}" target="_blank" class="link dim"> <img src="{{ user.avatar_url }}" width="96" height="96" alt="{{ user.login }}" class="br-100"></a>
+          </div>
+          <div class="tc">
+            <h2 class="mvn tc">
+              <span class="dib"><a href="{{user.html_url}}" target="_blank" class="f2 link dim dark-gray">{{user.login}}</a></span>
+            </h2>
+          </div>
+          <p class="tc mtn mid-gray f6">{{user.name}}</p>
+          <div>
+            <p class="tc mbn dn"><span class="">{{ user.public_repos }}</span> public repos</p>
+            <p class="tc mvn mid-gray"><span class="gray f6">{{ user.location }}</span></p>
+          </div>
+        </div>
+        <div>
+          <p ng-hide="repos">No repos!</p>
+          <div ng-show="repos">
+            <article ng-repeat="repo in repos" class="">
+              <a class="db f3 f2-ns b link dim dark-gray pam phl-m phxl-l mw10 center" href="{{repo.html_url}}" target="_blank">
+                {{repo.name}}
+                <span class="db f5 fw4 mvn lh-copy measure">{{repo.description}}</span>
+                <span class="f6 fw4">{{repo.stargazers_count}} stars</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="pvxl phm phl-m phxl-l bt b--light-gray mtxl">
+      <a href="http://tachyons.io" class="f6 link dim dark-gray db">Built with <b>Tachyons</b></a>
+      <p class="lh-copy measure">
+        This project is opensource and needs lots of love. If you're interested in contributing in anyway: opening issues, writing docs, or even building new features, check out the project on <a href="http://github.com/mrmrs/profile" class="link dim black b">GitHub</a>.
+      </p>
+    </footer>
+
+
+    <script>
+    angular.module('profile', ['ui.router']).config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+        $stateProvider
+        .state('index', {url: '', controller: 'github'})
+        .state('user', {
+          url: "/:user",
+          controller: 'github'
+        })
+      }])
+
+      angular.module('profile').controller('github', ['$scope', '$http', '$stateParams', '$state', function($scope, $http, $stateParams, $state) {
+        $scope.goUsername = function (name) {
+          $state.transitionTo('user', {user: name})
+        }
+        $scope.getGitInfo = function () {
+          $scope.userNotFound = false;
+          $scope.loaded = false;
+          $http.get("https://api.github.com/users/" + $scope.user)
+          .success(function (data) {
+            if (data.name == "") data.name = data.login;
+            $scope.user = data;
+            $scope.loaded = true;
+          })
+          .error(function () {
+            $scope.userNotFound = true;
+          });
+
+          $scope.repos = [];
+
+
+
+          addRepos = function(url) {
+            $http.get(url).success(function (data, status, headers) {
+              $scope.repos = $scope.repos.concat(data);
+              console.log(data)
+              var nextUrl;
+              if ((headers().link)) {
+                nextUrl = headers().link.match(/<([^\>]*)>; rel\=\"next\"/);
+              }
+              if (nextUrl) {
+                addRepos(nextUrl[1]);
+              }
+            });
+          };
+
+          addRepos("https://api.github.com/users/" + $scope.user + "/repos");
+        }
+        if ($stateParams.user) {
+          console.log($stateParams.user)
+          $scope.user = angular.copy($stateParams.user);
+          $scope.getGitInfo();
+        }
+      }
+      ])
+
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52095955-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
