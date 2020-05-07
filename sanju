@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sanju Buggargani</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+</head>
+
+<body background-image="C:/Users/mahen/Desktop/sanju.jpg">
+
+
+  
+	
+
+			
+			<h1 class="text-3xl font-bold pt-8 lg:pt-0">Sanju Buggargani</h1>
+		
+			<p class="pt-8 text-sm">Developing applications and uploading into playstore</p>
+		
+	
+
+	
+		<img src="C:\Users\mahen\Desktop\sanju.jpg"> 
+		
+		
+
+	
+	
+	
+	
+</body>
+
+</html>
