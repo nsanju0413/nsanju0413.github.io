@@ -33,11 +33,19 @@ h1 {
   -webkit-user-select: none;
   user-select: none;
 }
+
 	</style>
+<script type="text/javascript">
+  var audio = $('.song')[0];
+        audio.play();
+</script>	
 	
 </head>
 <body>
-	 <source src="hbd.mp3"></source>
+	 <audio class="song" controls loop>
+        <source src="hbd.mp3"></source>
+	   
+    </audio>
 	<h1>HAPPY BIRTHDAY PREMA</h1>
 <canvas id="birthday"></canvas>
 <script type="text/javascript">
