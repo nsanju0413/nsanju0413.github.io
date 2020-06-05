@@ -1,0 +1,76 @@
+$(document).ready(function () {
+
+    $("ul.agileits_social_list li:nth-child(2) a").attr('target', '_blank')
+        .attr("href", "https://www.youtube.com/channel/UCXPH9Z_h47zxJqrV7svmFKg/videos?view_as=subscriber");
+
+    var counter = '<a href="https://www.freecounterstat.com" title="hit counter"><img src="https://counter4.whocame.ovh/private/freecounterstat.php?c=fkfhkr6nggr3sk2qxj84lhz39lzmchql" border="0" title="hit counter" alt="hit counter"></a>';
+    if ($('.agileits_footer_copy .container p .agileits_hit_counter').length <= 0) {
+        $('.agileits_footer_copy .container p').append(counter);
+    }
+
+    if ($('.agileits_footer_copy .container p .agileits_social_list').length <= 0) {
+        $('.agileits_footer_copy .container p').append($('.agileits_social_list').clone());
+    }
+
+    $('ul.nav').flexMenu({
+        popupClass: "dropdown-menu"
+    });
+});
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en', includedLanguages: 'en,hi,te',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+
+(function ($) {
+    /*
+     * $.import_js() helper (for JavaScript importing within JavaScript code).
+     */
+    var import_js_imported = [];
+    var import_css_imported = [];
+
+    $.extend(true,
+        {
+            import_js: function (script) {
+                var found = false;
+                for (var i = 0; i < import_js_imported.length; i++)
+                    if (import_js_imported[i] == script) {
+                        found = true;
+                        break;
+                    }
+
+                if (found == false) {
+                    $("head").append('<script type="text/javascript" src="' + script + '"></script>');
+                    import_js_imported.push(script);
+                }
+            },
+
+            import_css: function (script) {
+                var found = false;
+                for (var i = 0; i < import_css_imported.length; i++)
+                    if (import_css_imported[i] == script) {
+                        found = true;
+                        break;
+                    }
+
+                if (found == false) {
+                    $("head").prepend('<link rel="stylesheet" href="' + script + '">');
+                    import_css_imported.push(script);
+                }
+            }
+        });
+
+})(jQuery);
+
+$.import_css('css/bootstrap/jquery.smartmenus.bootstrap.css');
+$.import_css('//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css');
+
+$.import_js('//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+$.import_js('js/jbility.js');
+$.import_js('js/modernizr-custom.js');
+$.import_js('js/flexmenu.min.js');
+$.import_js('js/jquery.smartmenus.js');
+$.import_js('css/bootstrap/jquery.smartmenus.bootstrap.js');
+$.import_js('//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js');
