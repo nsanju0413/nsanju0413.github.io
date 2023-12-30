@@ -1,189 +1,209 @@
-<!DOCTYPE html>
-<html>
-<title>Sanju B</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-/* Set the width of the sidebar to 120px */
-.w3-sidebar {width: 120px;background: #222;}
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {margin-left: 120px}
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
-</style>
-<body class="w3-black">
-  
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  <img src="/dp.jpg" style="width:100%">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>HOME</p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>ABOUT</p>
-  </a>
-  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-eye w3-xxlarge"></i>
-    <p>PHOTOS</p>
-  </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>CONTACT</p>
-  </a>
-</nav>
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
-    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
-  </div>
-</div>
+    <!--=============== FAVICON ===============-->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/dp.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/dp.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/dp.jpg">
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="images/dp.jpg">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#a789d4">
 
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Sanju B.</h1>
-    <p>Android Developer and Web Designer.</p>
-    <img src="/sanju.jpg" alt="boy" class="w3-image" width="992" height="1108">
-  </header>
+    <!--=============== BOXICONS ===============-->
+    <link href="css/boxicons.min.css" rel="stylesheet">
 
-  <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h2 class="w3-text-light-grey">Sanju B</h2>
-    <hr style="width:200px" class="w3-opacity">
-    <p>Innovative Android Developer with 1 year of experience designing, developing, testing, and maintaining Android applications.
-    	publishing Applications to Play Store.
-    </p>
-    <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
-    <p class="w3-wide">Android Development</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
-    </div>
-    <p class="w3-wide">Web Designing</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:85%"></div>
-    </div>
-    <p class="w3-wide">Application Designing</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-    </div><br>
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title> Sanjeevlu Buggargani </title>
+</head>
+
+<body>
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html#" class="nav__logo">Sanju</a>
+
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item ">
+                        <a href="index.html#home" class="nav__link">
+                            <i class="bx bx-home"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav__item ">
+                        <a href="index.html#about" class="nav__link">
+                            <i class="bx bx-user"></i>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#contact" class="nav__link">
+                            <i class="bx bx-message-square-dots"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!--=============== MAIN ===============-->
+    <main class="main">
+        <!-- =============== HOME =============== -->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <span class="home__greeting">Hello, I'm</span>
+                    <h1 class="home__name">Sanjeevlu Buggargani</h1>
+                    <div class="home__button">
+                        <a href="index.html#contact" class="button">Contact</a>
+                    </div>
+                </div>
+
+            <div class="home__button">
+                    <img src="images/bitmoji.png" alt="" class="home__img">
+                </div>
+
+                <div class="home__social">
+                    <a href="https://www.linkedin.com/in/nsanju0413" target="_blank" class="home__social-link">
+                        <i class="bx bxl-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/nsanju013/" target="_blank" class="home__social-link">
+                        <i class="bx bxl-github"></i>
+                    </a>
+                    <a href="https://www.snapchat.com/add/nsanju0413" target="_blank" class="home__social-link">
+                        <i class="bx bxl-snapchat"></i>
+                    </a>
+                </div>
+
+                <a href="index.html#about" class="home__scroll">
+                    <i class="bx bx-mouse home__scroll-icon"></i>
+                    <span class="home__scroll-name">Scroll Down</span>
+                </a>
+            </div>
+        </section>
+
+      
+        
+
+        <!--=============== CONTACT ===============-->
+
+        <div class="center-container">
+            <section class="contact section" id="contact">
+                <sapn class="section__subtitle">Get in touch</sapn>
+                <h3 class="section__title">Contact Me</h3>
     
-    <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-       <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">10+</span><br>
-        Projects Done
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">15+</span><br>
-        Meetings
-      </div>
-    </div>
-
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-download"></i> Download Resume
-    </button>
+                <div class="contact__container container center">
+                    <div class="contact__content">
+                        <h3 class="contact__title contact__title-info">Talk to me</h3>
     
-       </div>
+                        <div class="contact__info">
+                            <div class="contact__card">
+                                <i class="bx bx-mail-send contact__card-icon"></i>
+                                <h3 class="contact__card-title">Email</h3>
+                                <span class="contact__card-data">buggargs@gmail.com</span>
     
-    <!-- Testimonials -->
-   <!-- End About Section -->
-  </div>
-  
-  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-  <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="nsanju0413" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/nsanju0413?trk=profile-badge">Sanjeevlu B.</a></div>
-              
-
-  
-  <!-- Portfolio Section -->
-  <div class="w3-padding-64 w3-content" id="photos">
-    <h2 class="w3-text-light-grey">My Photos</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <h3> Updated Soon </h3>
-
-    <!-- Grid for photos 
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-half">
-        <img src="/w3images/wedding.jpg" style="width:100%">
-        <img src="/w3images/rocks.jpg" style="width:100%">
-        <img src="/w3images/sailboat.jpg" style="width:100%">
-      </div>
-
-      <div class="w3-half">
-        <img src="/w3images/underwater.jpg" style="width:100%">
-        <img src="/w3images/chef.jpg" style="width:100%">
-        <img src="/w3images/wedding.jpg" style="width:100%">
-        <img src="/w3images/p6.jpg" style="width:100%">
-      </div>
-    End photo grid -->
-    </div>
-  <!-- End Portfolio Section -->
-  </div>
-
-  <!-- Contact Section -->
-  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Me</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Hyderabad, TS</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: NOT AVAILABLE</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: sanjew1998@gmail.com</p>
-    </div><br>
-    <p>Lets get in touch. Send me a message:</p>
-
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
-  <!-- End Contact Section -->
-  </div>
-  
-    <!-- Footer -->
-  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-   <a href="https://www.facebook.com/nsanju0413">
-    <i class="fa fa-facebook-official w3-hover-opacity"> </i></a>
-
-    <a href="https://www.instagram.com/nsanju0413/" target="_blank">
-    <i class="fa fa-instagram w3-hover-opacity"></i></a>
-   
-   <a href="https://www.snapchat.com/add/nsanju0413">
-    <i class="fa fa-snapchat w3-hover-opacity"> </i></a>
-
-    <a href="https://in.pinterest.com/nsanju013/">
-    <i class="fa fa-pinterest-p w3-hover-opacity"> </i></a>
-
-    <a href="https://twitter.com/nsanju013">
-    <i class="fa fa-twitter w3-hover-opacity"> </i></a>
-
-    <a href="https://www.linkedin.com/in/nsanju0413/">
-    <i class="fa fa-linkedin w3-hover-opacity"> </i></a>
+                                <a href="mailto:buggargs@gmail.com" target="_blank" class="contact__button">
+                                    Connect with Me <i class="bx bx-right-arrow contact__button-icon"></i>
+                                </a>
+                            </div>
     
-    <p class="w3-xlarge">Created by <a href="https://www.instagram.com/nsanju0413/" target="_blank" class="w3-hover-text-green">Sanju B</a></p>
-  <!-- End footer -->
-  </footer>
+                            <div class="contact__card">
+                                <i class="bx bxl-whatsapp contact__card-icon"></i>
+                                <h3 class="contact__card-title">Whatsapp</h3>
+                                <span class="contact__card-data">+13347813045</span>
+    
+                                <a href="https://api.whatsapp.com/send?phone=+13347813045&amp;text=Hey from website!" target="_blank" class="contact__button">
+                                    Connect Me <i class="bx bx-right-arrow contact__button-icon"></i>
+                                </a>
+                            </div>
+    
+                            <div class="contact__card">
+                                <i class="bx bxl-twitter contact__card-icon"></i>
+                                <h3 class="contact__card-title">Twitter</h3>
+                                <span class="contact__card-data">nsanju0413</span>
+                                
+    
+                                <a href="https://twitter.com/nsanju013" target="_blank" class="contact__button">
+                                    Connect Me <i class="bx bx-right-arrow contact__button-icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                  
+            </div></section>
+          </div>
+          
+    </main>
 
-<!-- END PAGE CONTENT -->
-</div>
+    <!--=============== FOOTER ===============-->
+    <footer class="footer">
+        <div class="footer__container container">
+            <h1 class="footer__title">Sanju B</h1>
 
-</body>
-</html>
+            <ul class="footer__list">
+
+                <li class="footer__item">
+                    <a href="index.html#" class="footer__link">Home</a>
+                </li>
+                <li class="footer__item">
+                    <a href="index.html#about" class="footer__link">About</a>
+                </li>
+                <li class="footer__item">
+                    <a href="index.html#contact" class="footer__link">Contact</a>
+                </li>
+            </ul>
+
+            <ul class="footer__social">
+                <li class="footer__social-item">
+                    <a href="https://www.snapchat.com/add/nsanju0413" target="_blank" class="footer__social-link">
+                        <i class="bx bxl-snapchat footer__social-icon"></i>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a href="https://twitter.com/nsanju013" target="_blank" class="footer__social-link">
+                        <i class="bx bxl-twitter footer__social-icon"></i>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a href="https://www.linkedin.com/in/nsanju0413" target="_blank" class="footer__social-link">
+                        <i class="bx bxl-linkedin footer__social-icon"></i>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a href="https://www.instagram.com/nsanju0413" target="_blank" class="footer__social-link">
+                        <i class="bx bxl-instagram footer__social-icon"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <span class="footer__copy">
+                © 2023 Sanju.
+            </span>
+        </div>
+    </footer>
+
+    <!--=============== SCROLLREVEAL ===============-->
+
+    <!-- <script src="assets/js/scrollreveal.min.js"></script> -->
+    <script src="js/scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="js/swiper-bundle.min.js"></script>
+
+    <!--=============== MIXITUP FILTER ===============-->
+    <script src="js/mixitup.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="js/main.js"></script>
+
+
+</body></html>
