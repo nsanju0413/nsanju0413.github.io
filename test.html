@@ -4,50 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--=============== FAVICON ===============-->
+    <!-- FAVICON -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/dp.jpg">
     <link rel="icon" type="image/png" sizes="32x32" href="images/dp.jpg">
     <link rel="icon" type="image/png" sizes="16x16" href="images/dp.jpg">
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
     <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="images/dp.jpg">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="assets/favicons/browserconfig.xml">
     <meta name="theme-color" content="#a789d4">
     
-    <!--=============== BOXICONS ===============-->
+    <!-- BOXICONS -->
     <link href="css/boxicons.min.css" rel="stylesheet">
 
-    <!--=============== SWIPER CSS ===============-->
+    <!-- SWIPER CSS -->
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
-    <!--=============== CSS ===============-->
+    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://apis.google.com/js/api.js?key=AIzaSyBUCP8bKn2aigAGHdahtLT89gecIPgzCcc"></script>
+    <script src="https://apis.google.com/js/api.js?key=YOUR_API_KEY"></script>
 
     <title>Sanjeevlu Buggargani</title>
 </head>
 
 <body>
-    <!--=============== HEADER ===============-->
+    <!-- HEADER -->
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="index.html#" class="nav__logo">Sanju</a>
+            <a href="#" class="nav__logo">Sanju</a>
 
             <div class="nav__menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="index.html#home" class="nav__link">
+                        <a href="#home" class="nav__link">
                             <i class="bx bx-home"></i>
                         </a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="index.html#about" class="nav__link">
+                        <a href="#about" class="nav__link">
                             <i class="bx bx-user"></i>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="index.html#contact" class="nav__link">
+                        <a href="#contact" class="nav__link">
                             <i class="bx bx-message-square-dots"></i>
                         </a>
                     </li>
@@ -56,16 +57,16 @@
         </nav>
     </header>
 
-    <!--=============== MAIN ===============-->
+    <!-- MAIN -->
     <main class="main">
-        <!-- =============== HOME =============== -->
+        <!-- HOME -->
         <section class="home section" id="home">
             <div class="home__container container grid">
                 <div class="home__data">
                     <span class="home__greeting">Hello, I'm</span>
                     <h1 class="home__name">Sanjeevlu Buggargani</h1>
                     <div class="home__button">
-                        <a href="index.html#contact" class="button">Contact</a>
+                        <a href="#contact" class="button">Contact</a>
                     </div>
                 </div>
 
@@ -85,7 +86,7 @@
                     </a>
                 </div>
 
-                <a href="index.html#about" class="home__scroll">
+                <a href="#about" class="home__scroll">
                     <i class="bx bx-mouse home__scroll-icon"></i>
                     <span class="home__scroll-name">Scroll Down</span>
                 </a>
@@ -97,29 +98,37 @@
             <section class="contact section" id="contact">
                 <span class="section__subtitle">Get in touch</span>
                 <h3 class="section__title">Contact Me</h3>
-
+    
                 <div class="contact__container container center">
                     <div class="contact__content">
                         <h3 class="contact__title contact__title-info">Talk to me</h3>
-
+    
                         <div class="contact__info">
                             <div class="contact__card">
                                 <i class="bx bx-mail-send contact__card-icon"></i>
                                 <h3 class="contact__card-title">Email</h3>
                                 <span class="contact__card-data">buggargs@gmail.com</span>
-
+    
                                 <a href="mailto:buggargs@gmail.com" target="_blank" class="contact__button">
                                     Connect with Me <i class="bx bx-right-arrow contact__button-icon"></i>
                                 </a>
                             </div>
-
-                           
-
+    
+                            <div class="contact__card">
+                                <i class="bx bxl-whatsapp contact__card-icon"></i>
+                                <h3 class="contact__card-title">Whatsapp</h3>
+                                <span class="contact__card-data">+13347813045</span>
+    
+                                <a href="https://api.whatsapp.com/send?phone=+13347813045&amp;text=Hey from website!" target="_blank" class="contact__button">
+                                    Connect Me <i class="bx bx-right-arrow contact__button-icon"></i>
+                                </a>
+                            </div>
+    
                             <div class="contact__card">
                                 <i class="bx bxl-twitter contact__card-icon"></i>
                                 <h3 class="contact__card-title">Twitter</h3>
                                 <span class="contact__card-data">nsanju0413</span>
-
+    
                                 <a href="https://twitter.com/nsanju013" target="_blank" class="contact__button">
                                     Connect Me <i class="bx bx-right-arrow contact__button-icon"></i>
                                 </a>
@@ -129,24 +138,54 @@
                 </div>
             </section>
         </div>
+        
+        <!-- VIDEOS -->
+        <div id="videos-container"></div>
+        <button onclick="fetchYouTubeVideos('date')">Latest</button>
+        <button onclick="fetchYouTubeVideos('rating')">Top Rated</button>
+        <button onclick="fetchYouTubeVideos('viewCount')">Top Views</button>
     </main>
 
-    
+    <script>
+        const videoSection = document.getElementById("videos-container");
+        const loader = document.querySelector('.loader-box');
 
-    <!--=============== FOOTER ===============-->
+        function getVideos() {
+            fetch("https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=15&playlistId=UU1M6NSLUj3c1JhiZXiNDq3A&key=YOUR_API_KEY")
+                .then((res) => res.json())
+                .then((data) => {
+                    loader.style.display = "none";
+                    data.items.forEach((el) => {
+                        videoSection.innerHTML += `
+                            <a target="_blank" href="https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}" class="yt-video">
+                                <img src="${el.snippet.thumbnails.maxres.url}" />
+                                <h3>${el.snippet.title}</h3>
+                            </a>`;
+                    });
+                })
+                .catch((err) => {
+                    console.log(err);
+                    // Handle errors here
+                });
+        }
+
+        setTimeout(getVideos, 3000);
+    </script>
+
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer__container container">
             <h1 class="footer__title">Sanju B</h1>
 
             <ul class="footer__list">
                 <li class="footer__item">
-                    <a href="index.html#" class="footer__link">Home</a>
+                    <a href="#" class="footer__link">Home</a>
                 </li>
                 <li class="footer__item">
-                    <a href="index.html#about" class="footer__link">About</a>
+                    <a href="#about" class="footer__link">About</a>
                 </li>
                 <li class="footer__item">
-                    <a href="index.html#contact" class="footer__link">Contact</a>
+                    <a href="#contact" class="footer__link">Contact</a>
                 </li>
             </ul>
 
@@ -179,15 +218,16 @@
         </div>
     </footer>
 
-    <!--=============== SCROLLREVEAL ===============-->
+    <!-- SCROLLREVEAL -->
     <script src="js/scrollreveal.min.js"></script>
 
-    <!--=============== SWIPER JS ===============-->
+    <!-- SWIPER JS -->
     <script src="js/swiper-bundle.min.js"></script>
 
-    <!--=============== MIXITUP FILTER ===============-->
-   
-    <!--=============== MAIN JS ===============-->
+    <!-- MIXITUP FILTER -->
+    <script src="js/mixitup.min.js"></script>
+
+    <!-- MAIN JS -->
     <script src="js/main.js"></script>
 </body>
 </html>

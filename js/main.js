@@ -34,14 +34,6 @@ modalClose.forEach((mc) => {
 
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
 
-let mixer = mixitup(".work__container", {
-  selectors: {
-    target: ".work__card",
-  },
-  animation: {
-    duration: 300,
-  },
-});
 
 /* Link active work */
 const workLinks = document.querySelectorAll(".work__item");
@@ -133,15 +125,6 @@ if (selectedTheme) {
   );
 }
 
-// Activate / deactivate the theme manually with the button
-themeButton.addEventListener("click", () => {
-  // Add or remove the light / icon theme
-  document.body.classList.toggle(lightTheme);
-  themeButton.classList.toggle(iconTheme);
-  // We save the theme and the current icon that the user chose
-  localStorage.setItem("selected-theme", getCurrentTheme());
-  localStorage.setItem("selected-icon", getCurrentIcon());
-});
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
