@@ -311,32 +311,3 @@ function logToServer(logData){
         }
     });
 }
-
-// function getJSONData(id){
-//     var res = {};
-//     $.ajax({
-//         url: "data.json",
-//         success: function(result) {
-//             //console.log(result["id"][id]);
-
-//             var idData = result['id'][id];
-//             var batch = idData['batch'];
-//             var gpa = idData['gpa'];
-
-//             res = {
-//                 'credits':result['credits'][batch],
-//                 'gpa': gpa,
-//                 'id': id,
-//                 'batch': batch
-//             };
-
-//             //console.log(res);
-
-//             return res;
-//         },
-//         error: function(xhr, ajaxOptions, thrownError){
-//             alert(xhr.status);
-//             alert(thrownError);
-//         }
-//       });
-// }
