@@ -1,0 +1,241 @@
+%-------------------------
+% Resume in Latex
+% Author : Sanjeevlu Buggargani
+% Based off of: https://github.com/jakeryang/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+% only for pdflatex
+% \input{glyphtounicode}
+
+% fontawesome
+\usepackage{fontawesome5}
+
+% fixed width
+\usepackage[scale=0.90,lf]{FiraMono}
+
+% light-grey
+\definecolor{light-grey}{gray}{0.83}
+\definecolor{dark-grey}{gray}{0.3}
+\definecolor{text-grey}{gray}{.08}
+
+\DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
+\DeclareTextFontCommand{\texteb}{\ebseries}
+
+% custom underilne
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+
+% custom font: helvetica-style
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault} 
+%% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{0in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting - serif
+% \titleformat{\section}{
+%   \vspace{2pt} \scshape \raggedright\large % header section
+% }{}{0em}{}[\color{black} \titlerule \vspace{-5pt}]
+
+% TODO EBSERIES
+% sans serif sections
+\titleformat {\section}{
+    \bfseries \vspace{2pt} \raggedright \large % header section
+}{}{0em}{}[\color{light-grey} {\titlerule[2pt]} \vspace{-4pt}]
+
+% only for pdflatex
+% Ensure that generate pdf is machine readable/ATS parsable
+% \pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{dark-grey}\small #2}\vspace{1pt}\\ % top row of resume entry
+      \textit{#3} & {\color{dark-grey} \small #4}\\ % second row of resume entry
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & {\color{dark-grey}} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% CHANGED default leftmargin  0.15 in
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+\color{text-grey}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+   {\textbf{\Huge Sanjeevlu Buggargani} \\ \vspace{5pt} 
+\small \faPhone* \texttt{+1(334).781.3045} \hspace{1pt} $|$
+\hspace{1pt} \faEnvelope \hspace{2pt} \href{mailto:buggargs@gmail.com}{\texttt{buggargs@gmail.com}} \hspace{1pt} $|$
+\hspace{1pt} \faGithub \hspace{2pt} \href{https://github.com/nsanju0413}{\texttt{nsanju0413}} \hspace{1pt} $|$
+\hspace{1pt} \faLinkedin \hspace{2pt} \href{https://www.linkedin.com/in/nsanju0413}{\texttt{nsanju0413}} \hspace{1pt} $|$
+\hspace{1pt} \faGlobe \hspace{2pt} \href{https://bsanju.in}{\texttt{bsanju.in}}
+
+}
+
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{EXPERIENCE}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+      {Amazon}{Mar 2022 -- Apr. 2023}
+      {Software Engineering Intern}{Hyderabad,India}
+      \resumeItemListStart
+        \resumeItem{Worked on the Search Customer Experience Team; \textbf{received a return offer} for a full-time position}
+        \resumeItem{\textbf{Shipped a new feature to 2M+ users} to improve the search experience for movie series-related queries}
+        \resumeItem{Built a back-end database service in Java and implemented a front-end UI to support future changes}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {Stonedge Technologies and Robotics }{Oct. 2020 -- Mar. 2022}
+      {Software Engineer}{Hyderabad,India}
+      \resumeItemListStart
+        \resumeItem{\textbf{Led front-end development} of a dashboard to process 50k blood samples and detect early-stage cancer}
+        \resumeItem{Rebuilt a Quality Control product with input from 20 cross-functional stakeholders, \textbf{saving \$1M annually}}
+        \resumeItem{Spearheaded product development of a new lab workflow tool, leading to a 40\% increase in efficiency; \\ shadowed 10 core users, iterated on design docs, and implemented the solution with one engineer}
+
+    \resumeItemListEnd
+
+    
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+
+\section{PROJECTS}
+  \resumeSubHeadingListStart    
+      \resumeProjectHeading
+          {\textbf{Secure File Transfer Cloud Project}}{Jun. 2020 -- Sept. 2020}
+          \resumeItemListStart
+            \resumeItem{Built a cloud-based system for secure, encrypted file transfers, ensuring data privacy between users.}
+            \resumeItem{Integrated AES encryption and multi-factor authentication for enhanced security.}
+          \resumeItemListEnd
+          
+      \resumeProjectHeading
+         {\textbf{Art Gallery Management System}}{Apr. 2020 -- Aug. 2020}
+          \resumeItemListStart
+            \resumeItem{Designed a comprehensive management system to help art galleries organize artwork, manage exhibitions, and track sales.}
+            \resumeItem{Implemented using JavaScript, HTML, and MySQL, improving operational efficiency by 30\%.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+         {\textbf{TeamUp Project Management Tool}}{Dec. 2019 -- Mar. 2020}
+          \resumeItemListStart
+            \resumeItem{Created a collaborative project management tool with real-time communication features for remote teams.}
+            \resumeItem{Enhanced team productivity by 25\% by integrating task assignments, progress tracking, and messaging in one platform.}
+          \resumeItemListEnd
+          
+    \resumeSubHeadingListEnd
+
+
+
+%-----------EDUCATION-----------
+\section {EDUCATION}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Auburn University at Montgomery}{Aug. 2023 -- Dec. 2024}
+      {Master of Science in Computer Science}{Montgomery, AL}
+      	\resumeItemListStart
+    	\resumeItem {\textbf{Coursework}: Data Structures, Algorithms, Databases, Computer Systems, Machine Learning}
+        \resumeItem {\textbf{Academic Projects}: Developed various projects focusing on advanced machine learning algorithms, database management, and system architecture. \href{https://github.com/nsanju0413/PythonAum/tree/main/Projects}{\faGithub}}
+        \resumeItemListEnd
+    \resumeSubheading
+      {Mahatma Gandhi Institute of Technology}{Jul. 2017 -- Sep. 2020}
+      {Bachelor of Technology in Computer Science}{Hyderabad, India}
+        \resumeItemListStart
+        \resumeItem {\textbf{Coursework}: Introduction to Computers, C++, Java, Artificial Intelligence, Data Structures}
+        \resumeItem {\textbf{Achievements}: Gained a solid foundation in software development, algorithms, and AI.}
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{SKILLS}
+ \begin{itemize}[leftmargin=0in, label={}]
+    \small{\item{
+     \textbf{Languages} {: Python, JavaScript (React.js), HTML/CSS, SQL (PostgreSQL, MySQL)}\vspace{2pt} \\
+     \textbf{Tools}     {: Figma, Notion, Jira, Trello, Miro, Google Analytics, GitHub, DaVinci Resolve, OBS}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
